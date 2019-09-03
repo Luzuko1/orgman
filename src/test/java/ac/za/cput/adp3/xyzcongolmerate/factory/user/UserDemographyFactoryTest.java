@@ -1,23 +1,30 @@
 package ac.za.cput.adp3.xyzcongolmerate.factory.user;
 
+
+import ac.za.cput.adp3.xyzcongolmerate.domain.user.UserDemography;
+import ac.za.cput.adp3.xyzcongolmerate.util.Helper;
+import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Date;
+
+import static ac.za.cput.adp3.xyzcongolmerate.util.Helper.getSuffixFromClassName;
 import static org.junit.Assert.*;
 
 public class UserDemographyFactoryTest {
 
-    //TODO: implement method body ONLY!
+
+    private static final String SUFFIX = getSuffixFromClassName(UserDemographyFactory.class);
     @Test
     public void buildUserDemography() {
-        throw new UnsupportedOperationException("Not supported yet.");
-        /**
-         * Your implementation goes here
-         *
-         * INSTRUCTION
-         * 1. Remove line [//TODO: implement method body ONLY!]
-         * 2. Remove line [throw new UnsupportedOperationException("Not yet supported.");]
-         * 3. Test the UserDemographyFactory class
-         * 4. Assert that the an object is created.
-         */
+
+          String userTitle = "Mr";
+          String userEmail ="luzuko@gmail.com";
+          UserDemography userDemography = UserDemographyFactory.buildUserDemography(userEmail,userTitle,Helper.generateRandomGivenSuffix(SUFFIX), Helper.generateRandomGivenSuffix(SUFFIX),new Date());
+          Assert.assertNotNull(userDemography.getGenderId());
+          Assert.assertNotNull(userDemography.getRaceId());
+          Assert.assertNotNull(userDemography);
+        System.out.println(userDemography.toString());
+
     }
 }
